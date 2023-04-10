@@ -1,0 +1,136 @@
+<header>
+  <div class="topnav">
+    <a href="home">Home</a>
+    <a class="active" href="favourites">My Favourites</a>
+    <a href="contactus">Contact Us</a>
+    <a href="about">About</a>
+    <h5 style="text-align: end;">Welcome Back..!</h5>
+  </div>
+</header>
+<div style="padding-left:16px;">
+  <h2>Stories</h2>
+</div>
+<div class="container-fluid"  style="margin:15px;">
+  <div class="row" style="background-color:#f1f1f1; border-bottom:1px solid #ff6b6b; border-top:1px solid #ff6b6b;" >
+
+    <div *ngFor="let item of favdata;" class="col-sm-2" style="background-color:#f1f1f1;">
+      <div class="card">
+        <img src={{item.imgUrl}} alt="Avatar" style="width:100%">
+        <div>
+          <h5 style="padding-top:10px; color:black; text-align: center;"><b>{{item.storyName}}
+            </b></h5>
+          <div style="height: 100px; overflow:hidden !important; text-overflow: ellipsis; text-align: justify;"
+            title="{{item.introduction}}"><b
+              style="font-size: 12px; color:rgb(77, 76, 76);">{{item.introduction}}</b>
+          </div>
+        </div>
+        <div style="padding-top:10px;">
+          <b><a [routerLink]="['/story', item.storyid ]">Read more</a></b>
+          <b *ngIf="item.favourite === true" style="margin-left: 94px;" ><a routerLink="/favourites">Favorite</a></b>
+          <b *ngIf="item.favourite === false" style="margin-left: 94px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+    <!-- <div class="col-sm-2" style="background-color:#f1f1f1;">
+      <div class="card">
+        <img src="assets/images/story2.jpeg" alt="Avatar" style="width:100%">
+        <div>
+          <h5 style="padding-top:10px; color:black; text-align: center;"><b>{{storyData[1].storyName}}
+            </b></h5>
+          <div style="height: 100px; overflow:hidden !important; text-overflow: ellipsis; text-align: justify;"
+            title="{{storyData[1].introduction}}"><b
+              style="font-size: 12px; color:rgb(77, 76, 76);">{{storyData[1].introduction}}</b></div>
+        </div>
+        <div style="padding-top:10px; color:#ff6b6b;">
+          <b><a [routerLink]="['/story', 2 ]">Read more</a></b>
+          <b *ngIf="storyData[1].favourite === true" style="margin-left: 94px;" ><a routerLink="/favourites">Favorite</a></b>
+          <b *ngIf="storyData[1].favourite === false" style="margin-left: 94px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2" style="background-color:#f1f1f1;">
+      <div class="card">
+        <img src="assets/images/story3.jpeg" alt="Avatar" style="width:100%">
+        <div>
+          <h5 style="padding-top:10px; color:black; text-align: center;"><b>{{storyData[2].storyName}}
+            </b></h5>
+          <div style="height: 100px; overflow:hidden !important; text-overflow: ellipsis; text-align: justify;"
+            title="{{storyData[2].introduction}}"><b
+              style="font-size: 12px; color:rgb(77, 76, 76);">{{storyData[2].introduction}}</b></div>
+        </div>
+        <div style="padding-top:10px; color:#ff6b6b;">
+          <b><a [routerLink]="['/story', 3 ]">Read more</a></b>
+          <b *ngIf="storyData[2].favourite === true" style="margin-left: 94px;" ><a routerLink="/favourites">Favorite</a></b>
+          <b *ngIf="storyData[2].favourite === false" style="margin-left: 94px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2" style="background-color:#f1f1f1;">
+      <div class="card">
+        <img src="assets/images/story4.jpeg" alt="Avatar" style="width:100%">
+        <div>
+          <h5 style="padding-top:10px; color:black; text-align: center;"><b>{{storyData[3].storyName}}
+            </b></h5>
+          <div style="height: 100px; overflow:hidden !important; text-overflow: ellipsis; text-align: justify;"
+            title="{{storyData[3].introduction}}"><b
+              style="font-size: 12px; color:rgb(77, 76, 76);">{{storyData[3].introduction}}</b></div>
+        </div>
+        <div style="padding-top:10px; color:#ff6b6b;">
+          <b><a [routerLink]="['/story', 4 ]">Read more</a></b>
+          <b *ngIf="storyData[3].favourite === true" style="margin-left: 94px;" ><a routerLink="/favourites">Favorite</a></b>
+          <b *ngIf="storyData[3].favourite === false" style="margin-left: 94px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2" style="background-color:#f1f1f1;">
+      <div class="card">
+        <img src="assets/images/story5.jpeg" alt="Avatar" style="width:100%">
+        <div>
+          <h5 style="padding-top:10px; color:black; text-align: center;"><b>{{storyData[4].storyName}}
+            </b></h5>
+          <div style="height: 100px; overflow:hidden !important; text-overflow: ellipsis; text-align: justify;"
+            title="{{storyData[4].introduction}}"><b
+              style="font-size: 12px; color:rgb(77, 76, 76);">{{storyData[4].introduction}}</b></div>
+        </div>
+        <div style="padding-top:10px; color:#ff6b6b;">
+          <b><a [routerLink]="['/story', 5 ]">Read more</a></b>
+          <b *ngIf="storyData[4].favourite === true" style="margin-left: 94px;" ><a routerLink="/favourites">Favorite</a></b>
+          <b *ngIf="storyData[4].favourite === false" style="margin-left: 94px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2" style="background-color:#f1f1f1;">
+      <div class="card">
+        <img src="assets/images/story6.jpeg" alt="Avatar" style="width:100%">
+        <div>
+          <h5 style="padding-top:10px; color:black; text-align: center;"><b>{{storyData[5].storyName}}
+            </b></h5>
+          <div style="height: 100px; overflow:hidden !important; text-overflow: ellipsis; text-align: justify;"
+            title="{{storyData[5].introduction}}"><b
+              style="font-size: 12px; color:rgb(77, 76, 76);">{{storyData[5].introduction}}</b></div>
+        </div>
+        <div style="padding-top:10px; color:#ff6b6b;">
+          <b><a [routerLink]="['/story', 6 ]">Read more</a></b>
+          <b *ngIf="storyData[5].favourite === true" style="margin-left: 94px;" ><a routerLink="/favourites">Favorite</a></b>
+          <b *ngIf="storyData[5].favourite === false" style="margin-left: 94px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</div> -->

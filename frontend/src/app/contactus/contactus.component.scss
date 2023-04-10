@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: #ff4d4d;
+  text-decoration: none;
+  /* font-size: 16px; */
+  font-weight: bold;
+  /* transition: 0.3s; */
+}
+
+a:hover {
+  color: Black;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+.col-sm-2 {
+  padding: 15px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+:host {
+  display: block;
+  background-color: #ffecd2;
+  font-family: Arial, sans-serif;
+}
+
+.login {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 0px 20px #ccc;
+  padding: 20px;
+}
+
+h1 {
+  color: #000;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+  margin: 10px 0px;
+  font-size: 16px;
+  color: #333;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.button {
+  margin: 20px 0;
+}
+
+button[type=submit] {
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button[type=submit]:hover {
+  background-color: #ff4d4d;
+}
+
+.forgot {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+a {
+   color: #000; 
+  text-decoration: none;
+  /* font-size: 16px; */
+  font-weight: bold;
+  /* transition: 0.3s; */
+}
+
+.topnav h5 {
+  float: right;
+  color: #f2f2f2;
+  text-align: right;
+  padding: 6px 15px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+  font-weight: bold;
+}
