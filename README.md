@@ -24,3 +24,7 @@
 # About Page
 
 ![Alt text](images/aboutPage.png)
+
+# Contact Us page with email functionality
+
+![Alt text](images/contactUs.png)
