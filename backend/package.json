@@ -16,6 +16,7 @@
     "express": "^4.18.2",
     "font-awesome": "^4.7.0",
     "mongoose": "^6.7.1",
+    "nodemailer": "^6.9.13",
     "speak-tts": "^2.0.8",
     "speech-synthesis-text-to-speech": "^0.0.2",
     "text-to-speech-js": "^1.1.10",
