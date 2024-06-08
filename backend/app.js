@@ -7,13 +7,15 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 var storydb = require('./storydb.model');
 var storydb1 = require('./storydb_register.model');
+var storydb2 = require('./favorite.model');
 var fs = require('fs');
 
 //connection to mongodb database code 
 var db = 'mongodb://127.0.0.1:27017/storydb';
-mongoose.connect(db);
+mongoose.connect(db).then(()=>console.log('connected to MongoDB')).catch((err)=>console.log('error'));
 
 
 app.get('/', function (req, res) {
@@ -51,6 +53,20 @@ app.get('/storydb/storylist', function (req, res) {
     });
 });
 
+
+//get all the story records from the favorites collection of storydb
+app.get('/storydb/favoritelist', function (req, res) {
+  storydb2.find({})
+    .exec(function (err, favoriteinfos) {
+      if (err) {
+        res.send('error has occured');
+        fs.appendFile("./logFile", "\n" + new Date() + " > GET > '/storydb/storylist' > ERROR > Message: " + err, function (err) { });
+      } else {
+        res.json(favoriteinfos);
+        fs.appendFile("./logFile", "\n" + new Date() + " > GET > '/storydb/storylist' >  Status : 200 > SUCCESS > Message: Successfully retrieved all the stories from the storyinfos collection of storydb", function (err) { });
+      }
+    });
+});
 
 
 //get one record based on given emailId from logininfos collection of storydb
@@ -101,6 +117,36 @@ app.post('/storydb/logininfo/register', function (req, res) {
 });
 
 
+//post login credentials while first time sign-on to logininfos collection of storydb
+app.post('/storydb/addfavorite', function (req, res) {
+
+    storydb2.create(req.body, function (err, favoriteinfos) {
+      if (err) {
+        fs.appendFile("./logFile", "\n" + new Date() + " > POST > 'storydb/logininfo/register' > ERROR > Message: " + err, function (err) { });
+        res.send('error has occured');
+      } else {
+        res.json({ status: 200, description: 'Success' })
+        fs.appendFile("./logFile", "\n" + new Date() + " > POST > Status : 200 > 'storydb/logininfo/register' > SUCCESS > Message: Successfully Added new user login information in the logininfos collection of storydb", function (err) { });
+      }
+    });
+});
+
+// code to delete story from favorites
+app.post('/storydb/deletefav', function (req, res, next) {
+  console.log(req.body)
+  // const storyid = req.body.storyid
+  storydb2.deleteOne(req.body, (err, doc) => {
+    if (err) {
+      fs.appendFile("./logFile", "\n" + new Date() + " > POST > 'storydb/logininfo/register' > ERROR > Message: " + err, function (err) { });
+      res.send('error has occured');
+        } else {
+          res.json({ status: 200, description: 'Success' })
+          fs.appendFile("./logFile", "\n" + new Date() + " > POST > Status : 200 > 'storydb/logininfo/register' > SUCCESS > Message: Successfully Added new user login information in the logininfos collection of storydb", function (err) { });
+            }
+  })
+})
+
+
 // app.post('/storydb/logininfo/updatefav', function (req, res) {
 
 //   const storyid = req.body.storyid
@@ -116,6 +162,33 @@ app.post('/storydb/logininfo/register', function (req, res) {
 //     });
 //   // }
 // });
+
+
+app.post('/api/send-email', (req, res) => {
+  const { name, email, message } = req.body;
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'vparjunwadkar1995@gmail.com',
+      pass: 'owog kkiy rwlc kdrw'
+    }
+  });
+
+  const mailOptions = {
+    from: email,
+    to: 'vparjunwadkar1995@gmail.com',
+    subject: 'Contact Us Form Submission',
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.status(500).send(error.toString());
+    }
+    res.status(200).send('Email sent: ' + info.response);
+  });
+});
 
 
 //code to listen on 8080 port

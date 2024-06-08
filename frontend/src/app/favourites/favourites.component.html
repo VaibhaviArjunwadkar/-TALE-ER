@@ -2,34 +2,40 @@
   <div class="topnav">
     <a href="home">Home</a>
     <a class="active" href="favourites">My Favourites</a>
-    <a href="contactus">Contact Us</a>
+    <a href="contact">Contact Us</a>
     <a href="about">About</a>
-    <h5 style="text-align: end;">Welcome Back..!</h5>
+    <h4 routerLink="/login">Logout</h4>
   </div>
 </header>
 <div style="padding-left:16px;">
   <h2>Stories</h2>
 </div>
-<div class="container-fluid"  style="margin:15px;">
-  <div class="row" style="background-color:#f1f1f1; border-bottom:1px solid #ff6b6b; border-top:1px solid #ff6b6b;" >
+<div class="container-fluid" style="margin:15px;">
+  <div class="row" style="background-color:#f1f1f1; border-bottom:1px solid #ff6b6b; border-top:1px solid #ff6b6b;">
 
-    <div *ngFor="let item of favdata;" class="col-sm-2" style="background-color:#f1f1f1;">
+    <div *ngFor="let item of storyData;" class="col-sm-2" style="background-color:#f1f1f1;">
       <div class="card">
         <img src={{item.imgUrl}} alt="Avatar" style="width:100%">
         <div>
           <h5 style="padding-top:10px; color:black; text-align: center;"><b>{{item.storyName}}
             </b></h5>
           <div style="height: 100px; overflow:hidden !important; text-overflow: ellipsis; text-align: justify;"
-            title="{{item.introduction}}"><b
-              style="font-size: 12px; color:rgb(77, 76, 76);">{{item.introduction}}</b>
+            title="{{item.introduction}}"><b style="font-size: 12px; color:rgb(77, 76, 76);">{{item.introduction}}</b>
           </div>
         </div>
         <div style="padding-top:10px;">
           <b><a [routerLink]="['/story', item.storyid ]">Read more</a></b>
-          <b *ngIf="item.favourite === true" style="margin-left: 94px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="item.favourite === false" style="margin-left: 94px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 135px; cursor: context-menu;"><a (click)="removefromfav(item)"><i
+                class="fa-solid fa-trash"></i></a></b>
+          <!-- <b *ngIf="storyData[0].favourite == false" style="margin-left: 90px;" ><a style="color:black !important;" (click)="addtofav(storyData[0])">Favorite</a></b> -->
         </div>
       </div>
+    </div>
+
+    <div *ngIf="nofav">
+      <h3 style="color: #ff6b6b;"> You do not have any favorites yet. Please add some stories to show on this screen...!
+      </h3>
+
     </div>
 
   </div>
@@ -38,7 +44,7 @@
 
 </div>
 
-    <!-- <div class="col-sm-2" style="background-color:#f1f1f1;">
+<!-- <div class="col-sm-2" style="background-color:#f1f1f1;">
       <div class="card">
         <img src="assets/images/story2.jpeg" alt="Avatar" style="width:100%">
         <div>

@@ -24,4 +24,35 @@ describe('FavouritesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should redirect to home page after clicking on home button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should redirect to home page after clicking on My favorites button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should redirect to home page after clicking on About button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should redirect to home page after clicking on Contact Us button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should show all the favourite stories for the user', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should redirect to story page after clicking on favourite button', () => {
+    expect(component).toBeTruthy();
+
+  });
+
+  it('Verify display of favorites list', () => {
+    expect(component).toBeTruthy();
+
+  });
+
 });

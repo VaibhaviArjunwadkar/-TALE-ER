@@ -2,16 +2,16 @@
   <div class="topnav">
     <a class="active" routerLink="home">Home</a>
     <a class="favourites" href="favourites">My Favourites</a>
-    <a href="contactus">Contact Us</a>
+    <a href="contact">Contact Us</a>
     <a href="about">About</a>
-    <h5 style="text-align: end;">Welcome Back..!</h5>
+    <h4 routerLink="/login">Logout</h4>
   </div>
 </header>
 <div style="padding-left:16px;">
   <h2>Stories</h2>
 </div>
 <div class="container-fluid" style="margin:15px;">
-  <div class="row" style="background-color:#f1f1f1; border-bottom:1px solid #ff6b6b; border-top:1px solid #ff6b6b;" >
+  <div class="row" style="background-color:#f1f1f1; border-bottom:1px solid #ff6b6b; border-top:1px solid #ff6b6b;">
 
     <div class="col-sm-2" style="background-color:#f1f1f1;">
       <div class="card">
@@ -26,8 +26,8 @@
         </div>
         <div style="padding-top:10px;">
           <b><a [routerLink]="['/story', 1 ]">Read more</a></b>
-          <b *ngIf="storyData[0].favourite == true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[0].favourite == false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[0])"><i class="fa-solid fa-heart"></i></a></b>
+          <!-- <b *ngIf="storyData[0].favourite == false" style="margin-left: 90px;" ><a style="color:black !important;" (click)="addtofav(storyData[0])">Favorite</a></b> -->
         </div>
       </div>
     </div>
@@ -44,8 +44,9 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 2 ]">Read more</a></b>
-          <b *ngIf="storyData[1].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[1].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[1])"><i
+                class="fa-solid fa-heart"></i></a></b>
+          <!-- <b *ngIf="storyData[1].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b> -->
         </div>
       </div>
     </div>
@@ -62,8 +63,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 3 ]">Read more</a></b>
-          <b *ngIf="storyData[2].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[2].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[2])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -80,8 +81,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 4 ]">Read more</a></b>
-          <b *ngIf="storyData[3].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[3].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[3])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -98,8 +99,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 5 ]">Read more</a></b>
-          <b *ngIf="storyData[4].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[4].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[4])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -116,8 +117,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 6 ]">Read more</a></b>
-          <b *ngIf="storyData[5].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[5].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[5])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -141,8 +142,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 7 ]">Read more</a></b>
-          <b *ngIf="storyData[6].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[6].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[6])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -159,8 +160,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 8 ]">Read more</a></b>
-          <b *ngIf="storyData[7].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[7].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[7])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -177,8 +178,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 9 ]">Read more</a></b>
-          <b *ngIf="storyData[8].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[8].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[8])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -195,8 +196,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 10 ]">Read more</a></b>
-          <b *ngIf="storyData[9].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[9].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[9])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -213,8 +214,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 11 ]">Read more</a></b>
-          <b *ngIf="storyData[10].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[10].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[10])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -231,8 +232,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 12 ]">Read more</a></b>
-          <b *ngIf="storyData[11].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[11].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[11])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -256,8 +257,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 13 ]">Read more</a></b>
-          <b *ngIf="storyData[12].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[12].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[12])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -274,8 +275,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 14 ]">Read more</a></b>
-          <b *ngIf="storyData[13].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[13].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[13])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -292,8 +293,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 15 ]">Read more</a></b>
-          <b *ngIf="storyData[14].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[14].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[14])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -310,8 +311,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 16 ]">Read more</a></b>
-          <b *ngIf="storyData[15].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[15].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[15])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -328,8 +329,8 @@
         </div>
         <div style="padding-top:10px; color:#ff6b6b;">
           <b><a [routerLink]="['/story', 17 ]">Read more</a></b>
-          <b *ngIf="storyData[16].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[16].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[16])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>
@@ -346,8 +347,8 @@
         </div>
         <div style="padding-top:10px;">
           <b><a [routerLink]="['/story', 18 ]">Read more</a></b>
-          <b *ngIf="storyData[17].favourite === true" style="margin-left: 90px;" ><a routerLink="/favourites">Favorite</a></b>
-          <b *ngIf="storyData[17].favourite === false" style="margin-left: 90px;" ><a style="color:black !important;" routerLink="/favourites">Favorite</a></b>
+          <b style="margin-left: 130px;  cursor: context-menu;"><a (click)="addtofav(storyData[17])"><i
+                class="fa-solid fa-heart"></i></a></b>
         </div>
       </div>
     </div>

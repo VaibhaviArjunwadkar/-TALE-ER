@@ -1,0 +1,21 @@
+<header>
+  <div class="topnav">
+    <a href="home">Home</a>
+    <a href="favourites">My Favourites</a>
+    <a class="active" href="contact">Contact Us</a>
+    <a href="about">About</a>
+    <h4 routerLink="/login">Logout</h4>
+  </div>
+</header>
+<div class="contact-us login">
+  <img src="assets/images/logo.png">
+  <h3>Contact Us</h3>
+  <form [formGroup]="contactForm" (ngSubmit)="sendEmail(contactForm.value)">
+    <input formControlName="name" type="text" placeholder="Name">
+    <input formControlName="email" type="email" placeholder="Email Address">
+    <textarea formControlName="message" placeholder="Message"></textarea>
+    <div class="button">
+      <button type="submit">Send</button>
+    </div>
+  </form>
+</div>

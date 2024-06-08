@@ -48,13 +48,19 @@ body {
     color: white;
   }
 
-  .topnav h5 {
+  .topnav h4 {
     float: right;
     color: #f2f2f2;
+    padding: 6px 16px;
     text-align: right;
-    padding: 6px 15px;
     text-decoration: none;
     font-size: 17px;
     display: block;
     font-weight: bold;
+    cursor: context-menu;
   }
+
+  .topnav h4:hover {
+    color: #ff4d4d;
+  }
+

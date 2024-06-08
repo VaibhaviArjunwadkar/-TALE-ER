@@ -26,7 +26,7 @@ export class SignOnPageComponent implements OnInit {
   }
 
   onSubmit(data: any) {
-  
+
 
     this.formdata = data;
     // Simple GET request to get all the login information

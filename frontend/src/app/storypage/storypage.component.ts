@@ -18,33 +18,33 @@ export class StorypageComponent {
   constructor(private http: HttpClient, private route: ActivatedRoute) {
 
     this.speech = new Speech() // will throw an exception if not browser supported
-    if(this.speech .hasBrowserSupport()) { // returns a boolean
-        console.log("speech synthesis supported")
-        this.speech.init({
-                'volume': 1,
-                'lang': 'en-GB',
-                'rate': 1,
-                'pitch': 1,
-                'voice':'Google UK English Female',
-                'splitSentences': true,
-                'listeners': {
-                    'onvoiceschanged': (voices: any) => {
-                        console.log("Event voiceschanged", voices)
-                    }
-                }
-        }).then((data: { voices: { name: string; lang: string; }[]; }) => {
-            // The "data" object contains the list of available voices and the voice synthesis params
-            console.log("Speech is ready, voices are available", data)
-            this.speechData = data;
-            data.voices.forEach((voice: { name: string; lang: string; }) => {
-            console.log(voice.name + " "+ voice.lang)
-            });
-        }).catch((e: any) => {
-            console.error("An error occured while initializing : ", e)
-        })
+    if (this.speech.hasBrowserSupport()) { // returns a boolean
+      console.log("speech synthesis supported")
+      this.speech.init({
+        'volume': 1,
+        'lang': 'en-GB',
+        'rate': 1,
+        'pitch': 1,
+        'voice': 'Google UK English Female',
+        'splitSentences': true,
+        'listeners': {
+          'onvoiceschanged': (voices: any) => {
+            console.log("Event voiceschanged", voices)
+          }
+        }
+      }).then((data: { voices: { name: string; lang: string; }[]; }) => {
+        // The "data" object contains the list of available voices and the voice synthesis params
+        console.log("Speech is ready, voices are available", data)
+        this.speechData = data;
+        data.voices.forEach((voice: { name: string; lang: string; }) => {
+          console.log(voice.name + " " + voice.lang)
+        });
+      }).catch((e: any) => {
+        console.error("An error occured while initializing : ", e)
+      })
     }
 
-   }
+  }
 
   ngOnInit() {
 
@@ -71,15 +71,15 @@ export class StorypageComponent {
 
   }
 
-  start(story: any){
+  start(story: any) {
     console.log(story)
     this.speech.speak({
       text: story,
-  })
+    })
   }
 
-  stop(){
-     this.speech.cancel()
+  stop() {
+    this.speech.cancel()
   }
 
 }

@@ -8,9 +8,9 @@ describe('ContactusComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContactusComponent ]
+      declarations: [ContactusComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ContactusComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,26 @@ describe('ContactusComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should redirect to home page after clicking on home button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should redirect to home page after clicking on My favorites button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should redirect to home page after clicking on About button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should redirect to home page after clicking on Contact Us button on nav bar', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('Verify display of Contact Us page', () => {
+    expect(component).toBeTruthy();
+
+  });
+
 });

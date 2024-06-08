@@ -12,9 +12,12 @@ import { StorypageComponent } from './storypage/storypage.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutComponent } from './about/about.component';
+import { HighlightDirective } from './highlight.directive';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginpageComponent },
+  { path: 'contact', component: ContactUsComponent },
   { path: 'signon', component: SignOnPageComponent },
   { path: 'home', component: HomecomponentComponent },
   { path: 'story/:id', component: StorypageComponent },
@@ -35,7 +38,9 @@ const routes: Routes = [
     StorypageComponent,
     FavouritesComponent,
     ContactusComponent,
-    AboutComponent
+    AboutComponent,
+    HighlightDirective,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

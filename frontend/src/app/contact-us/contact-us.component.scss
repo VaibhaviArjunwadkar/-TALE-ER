@@ -1,7 +1,22 @@
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+:host {
+  display: block;
+  background-color: #ffecd2;
+  font-family: Arial, sans-serif;
 }
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 0px 20px #ccc;
+  padding: 20px;
+}
+
 
 a {
   color: #ff4d4d;
@@ -48,34 +63,28 @@ a:hover {
   color: white;
 }
 
-:host {
+.topnav h4 {
+  float: right;
+  color: #f2f2f2;
+  padding: 6px 16px;
+  text-align: right;
+  text-decoration: none;
+  font-size: 17px;
   display: block;
-  background-color: #ffecd2;
-  font-family: Arial, sans-serif;
-}
-
-.login {
-  position: absolute;
-  top: 53%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  background-color: #fff;
-  border-radius: 5px;
-  text-align: center;
-  box-shadow: 0px 0px 20px #ccc;
-  padding: 20px;
-}
-
-h1 {
-  color: #000;
-  font-size: 30px;
   font-weight: bold;
+  cursor: context-menu;
+}
+
+.topnav h4:hover {
+  color: #ff4d4d;
+}
+
+img {
+  width: 150px; /* Adjust this size to match your login page logo */
   margin-bottom: 20px;
 }
 
-input[type=text],
-input[type=password] {
+input[type=text], input[type=email], textarea {
   width: 100%;
   padding: 12px 20px;
   border: none;
@@ -87,10 +96,13 @@ input[type=password] {
   color: #333;
 }
 
-input[type=text]:focus,
-input[type=password]:focus {
+input[type=text]:focus, input[type=email]:focus, textarea:focus {
   background-color: #ddd;
   outline: none;
+}
+
+textarea {
+  height: 100px;
 }
 
 .button {
@@ -112,34 +124,4 @@ button[type=submit] {
 
 button[type=submit]:hover {
   background-color: #ff4d4d;
-}
-
-.forgot {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
-}
-
-a {
-  color: #000;
-  text-decoration: none;
-  /* font-size: 16px; */
-  font-weight: bold;
-  /* transition: 0.3s; */
-}
-
-.topnav h4 {
-  float: right;
-  color: #f2f2f2;
-  padding: 6px 16px;
-  text-align: right;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
-  font-weight: bold;
-  cursor: context-menu;
-}
-
-.topnav h4:hover {
-  color: #ff4d4d;
 }
