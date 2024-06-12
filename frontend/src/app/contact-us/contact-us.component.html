@@ -10,12 +10,12 @@
 <div class="contact-us login">
   <img src="assets/images/logo.png">
   <h3>Contact Us</h3>
-  <form [formGroup]="contactForm" (ngSubmit)="sendEmail(contactForm.value)">
+  <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
     <input formControlName="name" type="text" placeholder="Name">
     <input formControlName="email" type="email" placeholder="Email Address">
     <textarea formControlName="message" placeholder="Message"></textarea>
     <div class="button">
-      <button type="submit">Send</button>
+      <button type="submit">Send Email</button>
     </div>
   </form>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ApicallService } from '../apicall.service';
 
 @Component({
   selector: 'app-homecomponent',
@@ -12,11 +13,12 @@ export class HomecomponentComponent {
   nofav: boolean = true;
   postdata: any;
 
-  constructor(private http: HttpClient, private _router: Router) { }
+  constructor(private apiCall: ApicallService, private http: HttpClient, private _router: Router) { }
 
   ngOnInit() {
     // Simple GET request to get all the login information
-    this.http.get<any>('http://localhost:8080/storydb/storylist').subscribe(data => {
+    // this.http.get<any>('http://localhost:8080/storydb/storylist').subscribe(data => {
+    this.apiCall.getStories().subscribe(data => {
       this.storyData = data;
       if (this.storyData.length > 0) {
         this.nofav = false;

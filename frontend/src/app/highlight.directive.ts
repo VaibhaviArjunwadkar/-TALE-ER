@@ -5,11 +5,22 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class HighlightDirective {
 
-  constructor(el: ElementRef) { 
+  constructor(private el: ElementRef) { 
 
-    el.nativeElement.style.backgroundColor = 'yellow';
+    this.el.nativeElement.style.color = 'yellow';
 
   }
 
+  // @HostListener('click') onMouseClick() {
+  //   this.el.nativeElement.style.backgroundColor = 'yellow';
+  // }
+
+  // @HostListener('mouseenter') onMouseEnter() {
+   
+  // }
+
+  // @HostListener('mouseleave') onMouseLeave() {
+    
+  // }
 
 }

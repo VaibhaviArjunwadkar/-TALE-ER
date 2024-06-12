@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { ApicallService } from '../apicall.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -14,7 +14,7 @@ export class LoginpageComponent {
   formdata: any;
   showMsg: boolean = false;
 
-  constructor(private http: HttpClient, private _router: Router) { }
+  constructor(private apiService: ApicallService, private http: HttpClient, private _router: Router) { }
 
   loginData: any;
 
@@ -34,7 +34,8 @@ export class LoginpageComponent {
     this.formdata = data;
     console.log(this.formdata);
     // Simple GET request to get all the login information
-    this.http.get<any>('http://localhost:8080/storydb/loginlist').subscribe(data => {
+    // this.http.get<any>('http://localhost:8080/storydb/loginlist').subscribe(data => {
+    this.apiService.getLoginList().subscribe(data => {
       this.loginData = data;
       console.log(this.loginData);
 
