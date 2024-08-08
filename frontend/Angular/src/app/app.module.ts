@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SignOnPageComponent } from './sign-on-page/sign-on-page.component';
@@ -14,6 +15,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AboutComponent } from './about/about.component';
 import { HighlightDirective } from './highlight.directive';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CapitalizePipe } from './capitalize.pipe';
+import { DemoComponent } from './demo/demo.component';
+import { ChildComponent } from './child/child.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginpageComponent },
@@ -24,6 +28,7 @@ const routes: Routes = [
   { path: 'favourites', component: FavouritesComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'demo', component: DemoComponent },
   { path: '*', component: LoginpageComponent },
   { path: '', component: LoginpageComponent }
 
@@ -40,12 +45,16 @@ const routes: Routes = [
     ContactusComponent,
     AboutComponent,
     HighlightDirective,
-    ContactUsComponent
+    ContactUsComponent,
+    CapitalizePipe,
+    DemoComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only

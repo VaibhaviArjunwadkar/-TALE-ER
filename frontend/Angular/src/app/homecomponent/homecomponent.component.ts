@@ -27,7 +27,6 @@ export class HomecomponentComponent {
   }
 
   addtofav(data: any) {
-    console.log("yahoo:", data)
     this.http.post("http://localhost:8080/storydb/addfavorite", data).subscribe((apidata) => {
       console.log("post ", apidata);
       this.postdata = apidata;

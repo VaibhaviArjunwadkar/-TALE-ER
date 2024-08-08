@@ -1,0 +1,36 @@
+<!-- app.component.html -->
+<div class="login">
+    <img src="assets/images/logo.png">
+
+    <form [formGroup]="inputData" (ngSubmit)="searchElement()">
+
+        <input formControlName="target" type="number" placeholder="Enter the Number">
+    
+        <div class="button">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+        <div *ngIf="display === -1">
+            <h3>Target number was not found in the database</h3>
+        </div>
+        <div *ngIf="display > 0">
+            <h3>Target number found at position {{ display }}</h3>
+        </div>
+        <div *ngIf="display === 0"></div>
+        <div *ngIf="receivedValue !== null">
+            <h3>Value from child: {{ receivedValue }}</h3>
+        </div>  
+
+        <!-- <div style="text-align:center">
+            <input [(ngModel)]="name" placeholder="Enter your name">
+            <p>Hello, {{ name }}!</p>
+          </div> -->
+
+        <!-- <div *ngFor="let ele of data">
+            <h3>{{ele}}</h3>
+        </div> -->
+</div>
+
+
+<app-child *ngIf="display > 0" [displayValue]="display" (valueChanged)="onValueChanged($event)"></app-child>
+

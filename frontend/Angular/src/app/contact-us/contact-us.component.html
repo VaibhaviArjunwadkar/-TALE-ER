@@ -11,11 +11,12 @@
   <img src="assets/images/logo.png">
   <h3>Contact Us</h3>
   <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
-    <input formControlName="name" type="text" placeholder="Name">
-    <input formControlName="email" type="email" placeholder="Email Address">
-    <textarea formControlName="message" placeholder="Message"></textarea>
+    <input formControlName="name" type="text" placeholder="Name" required>
+    <input formControlName="email" type="email" placeholder="Email Address" required>
+    <textarea formControlName="message" placeholder="Message" required></textarea>
     <div class="button">
       <button type="submit">Send Email</button>
+      <!-- <p>{{ 'hello world' | capitalize }}</p> -->
     </div>
   </form>
-</div>
+</div> 

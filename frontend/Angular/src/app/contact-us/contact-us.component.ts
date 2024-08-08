@@ -20,19 +20,24 @@ export class ContactUsComponent {
 
 
   sendEmail() {
-    if (this.contactForm.valid) {
-      this.http.post('http://localhost:8080/api/send-email', this.contactForm.value).subscribe(
-        response => {
-          this.contactForm.reset();
-        },
-        error => {
+
+    this.http.post("http://localhost:8080/api/send-email", this.contactForm.value).subscribe(
+      (response: any) => {
+        if (response.status === 200) {
           alert('Email sent successfully!');
           this.contactForm.reset();
+        } else {
+          alert('Failed to send email.');
+          this.contactForm.reset();
         }
-      );
-    } else {
-      alert('Please fill out the form correctly.');
-    }
+      },
+      (error) => {
+        console.error('Error:', error);
+        alert('An error occurred while sending the email.');
+        this.contactForm.reset();
+      }
+    );
+    
   }
 
 }
